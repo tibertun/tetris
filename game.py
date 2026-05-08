@@ -21,10 +21,23 @@ class Game():
         self.current_block.draw(screen)
 
     def move_left(self):
-        self.current_block.move(0,-1)
+        self.current_block.move(0, -1)
+        if not self.block_in_grid():
+            self.current_block.move(0, 1)
 
     def move_right(self):
-        self.current_block.move(0,1)
+        self.current_block.move(0, 1)
+        if not self.block_in_grid():
+            self.current_block.move(0, -1)
 
     def move_domn(self):
-        self.current_block.move(1,0)
+        self.current_block.move(1, 0)
+        if not self.block_in_grid():
+            self.current_block.move(-1, 0)
+
+    def block_in_grid(self):
+        tiles = self.current_block.get_cell_positions()
+        for tile in tiles:
+            if not self.grid.is_in_grid(tile.row, tile.col):
+                return False
+        return True

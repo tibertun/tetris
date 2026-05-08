@@ -15,6 +15,12 @@ class Grid:
                 print(self.grid[row][col], end= " ")
             print()
 
+    def is_in_grid(self, row, col):
+        if row >= 0 and row < self.num_rows and col >= 0 and col < self.num_cols:
+            return True
+        else:
+            return False
+
     # def get_cell_color(self):
     #     dark_grey = (26, 31, 40) #порожня клітинка
     #     green = (47, 230, 23) #S фігура
