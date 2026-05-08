@@ -1,6 +1,5 @@
 import pygame,sys
-from grid import Grid
-from blocks import *
+from game import Game
 
 pygame.init()
 screen = pygame.display.set_mode((300, 600))
@@ -8,10 +7,7 @@ screen.fill((0, 0, 0))
 pygame.display.set_caption("Python Tetris")
 clock = pygame.time.Clock()
 
-game_grid = Grid()
-
-block = LBlock()
-
+game = Game()
 
 #головний цикл гри
 while True:
@@ -19,7 +15,7 @@ while True:
         if event.type == pygame.QUIT:
             pygame.quit()
             sys.exit()
-    game_grid.draw(screen)
-    block.draw(screen)
+
+    game.draw(screen)
     pygame.display.update()
     clock.tick(60)
