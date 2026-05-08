@@ -30,7 +30,7 @@ class Game():
         if not self.block_in_grid():
             self.current_block.move(0, -1)
 
-    def move_domn(self):
+    def move_down(self):
         self.current_block.move(1, 0)
         if not self.block_in_grid():
             self.current_block.move(-1, 0)
@@ -41,3 +41,8 @@ class Game():
             if not self.grid.is_in_grid(tile.row, tile.col):
                 return False
         return True
+
+    def rotate(self):
+        self.current_block.rotate()
+        if not self.block_in_grid():
+            self.current_block.no_rotate()

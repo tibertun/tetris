@@ -21,7 +21,9 @@ while True:
             if event.key == pygame.K_RIGHT:
                 game.move_right()
             if event.key == pygame.K_DOWN:
-                game.move_domn()
+                game.move_down()
+            if event.key == pygame.K_UP:
+                game.rotate()
 
     game.draw(screen)
     pygame.display.update()
