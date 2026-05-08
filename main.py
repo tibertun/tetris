@@ -10,7 +10,7 @@ clock = pygame.time.Clock()
 
 game_grid = Grid()
 
-block = IBlock()
+block = LBlock()
 
 
 #головний цикл гри
