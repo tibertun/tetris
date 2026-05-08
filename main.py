@@ -1,5 +1,6 @@
 import pygame,sys
 from grid import Grid
+from blocks import *
 
 pygame.init()
 screen = pygame.display.set_mode((300, 600))
@@ -9,11 +10,7 @@ clock = pygame.time.Clock()
 
 game_grid = Grid()
 
-# game_grid.grid[0][0] = 1
-# game_grid.grid[3][5] = 4
-# game_grid.grid[17][8] = 7
-
-game_grid.print_grid()
+block = LBlock()
 
 #головний цикл гри
 while True:
@@ -22,5 +19,6 @@ while True:
             pygame.quit()
             sys.exit()
     game_grid.draw(screen)
+    block.draw(screen)
     pygame.display.update()
     clock.tick(60)
