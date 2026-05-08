@@ -10,7 +10,8 @@ clock = pygame.time.Clock()
 
 game_grid = Grid()
 
-block = LBlock()
+block = IBlock()
+
 
 #головний цикл гри
 while True:
