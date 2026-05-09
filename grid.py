@@ -21,6 +21,12 @@ class Grid:
         else:
             return False
 
+    def is_empty(self, row, col):
+        if self.grid[row][col] == 0:
+            return True
+        else:
+            return False
+
     # def get_cell_color(self):
     #     dark_grey = (26, 31, 40) #порожня клітинка
     #     green = (47, 230, 23) #S фігура

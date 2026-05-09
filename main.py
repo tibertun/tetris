@@ -9,6 +9,9 @@ clock = pygame.time.Clock()
 
 game = Game()
 
+game_update = pygame.USEREVENT
+pygame.time.set_timer(game_update, 200)
+
 #головний цикл гри
 while True:
     for event in pygame.event.get():
@@ -24,7 +27,10 @@ while True:
                 game.move_down()
             if event.key == pygame.K_UP:
                 game.rotate()
+        if event.type == game_update:
+            game.move_down()
 
     game.draw(screen)
+
     pygame.display.update()
     clock.tick(60)
