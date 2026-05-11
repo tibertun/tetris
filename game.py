@@ -8,6 +8,7 @@ class Game:
         self.blocks = [LBlock(), JBlock(), IBlock(), OBlock(), SBlock(), TBlock(), ZBlock()]
         self.current_block = self.get_random_block()
         self.next_block = self.get_random_block()
+        self.game_over = False
 
     def get_random_block(self):
         if len(self.blocks) == 0:
@@ -42,6 +43,16 @@ class Game:
             self.grid.grid[pos.row][pos.col] = self.current_block.id
         self.current_block = self.next_block
         self.next_block = self.get_random_block()
+        self.grid.clear_full_rows()
+        if not self.block_fits():
+            self.game_over = True
+
+    def reset(self):
+        self.grid.reset()
+        self.blocks = [LBlock(), JBlock(), IBlock(), OBlock(), SBlock(), TBlock(), ZBlock()]
+        self.current_block = self.get_random_block()
+        self.next_block = self.get_random_block()
+
 
     def block_fits(self):
         tiles = self.current_block.get_cell_positions()

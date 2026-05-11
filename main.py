@@ -10,7 +10,7 @@ clock = pygame.time.Clock()
 game = Game()
 
 game_update = pygame.USEREVENT
-pygame.time.set_timer(game_update, 200)
+pygame.time.set_timer(game_update, 100)
 
 #головний цикл гри
 while True:
@@ -19,15 +19,18 @@ while True:
             pygame.quit()
             sys.exit()
         if event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_LEFT:
+            if game.game_over:
+                game.game_over = False
+                game.reset()
+            if event.key == pygame.K_LEFT and not game.game_over:
                 game.move_left()
-            if event.key == pygame.K_RIGHT:
+            if event.key == pygame.K_RIGHT and not game.game_over:
                 game.move_right()
-            if event.key == pygame.K_DOWN:
+            if event.key == pygame.K_DOWN and not game.game_over:
                 game.move_down()
-            if event.key == pygame.K_UP:
+            if event.key == pygame.K_UP and not game.game_over:
                 game.rotate()
-        if event.type == game_update:
+        if event.type == game_update and not game.game_over:
             game.move_down()
 
     game.draw(screen)
