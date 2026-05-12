@@ -3,7 +3,7 @@ from game import Game
 
 pygame.init()
 screen = pygame.display.set_mode((300, 600))
-screen.fill((0, 0, 0))
+screen.fill((0, 0, 139))
 pygame.display.set_caption("Python Tetris")
 clock = pygame.time.Clock()
 
