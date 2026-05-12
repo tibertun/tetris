@@ -10,7 +10,7 @@ clock = pygame.time.Clock()
 game = Game()
 
 game_update = pygame.USEREVENT
-pygame.time.set_timer(game_update, 100)
+pygame.time.set_timer(game_update, 300)
 
 #головний цикл гри
 while True:
