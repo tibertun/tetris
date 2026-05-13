@@ -3,6 +3,10 @@ from colors import Colors
 from position import Position
 
 
+from colors import Colors
+from position import Position
+
+
 class Block:
     def __init__(self, id):
         self.id = id
@@ -11,8 +15,7 @@ class Block:
         self.row_offset = 0
         self.col_offset = 0
         self.rotation_state = 0
-        self.colors = Colors().colors
-
+        self.colors = Colors.get_cell_colors()
     def move(self, rows, cols):
         self.row_offset += rows
         self.col_offset += cols
@@ -35,9 +38,9 @@ class Block:
         if self.rotation_state == 0:
             self.rotation_state = len(self.cells) - 1
 
-    def draw(self, screen):
+    def draw(self, screen, offset_x, offset_y):
         tiles = self.get_cell_positions()
         for tile in tiles:
-            tile_rect = pygame.Rect(tile.col * self.cell_size + 1, tile.row * self.cell_size + 1, self.cell_size - 1, self.cell_size - 1)
+            tile_rect = pygame.Rect(offset_x + tile.col * self.cell_size, offset_y + tile.row * self.cell_size, self.cell_size - 1, self.cell_size - 1)
             pygame.draw.rect(screen, self.colors[self.id], tile_rect)
 
